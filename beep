@@ -6,20 +6,24 @@
 #	
 #   © 2012 Alan Staniforth
 #
-#	Version 1.0
+#	Version 1.0.1
 #
 #	Invoke thus:
 #
-#	./beep	[-h]
+#	./beep	[-h|-v|[NUM_BEEPS]]
 #
 #	NOTE:
-#	This script now includes an invisible conrol character on the end of the 'echo' line
+#	This script now includes an invisible control character on the end of the 'echo' line
 #	which makes the beep. Do not manually delete this character or do a "Zap Gremlins"
 #	in BBEdit or similar text editor
 #
+#	Version 1.0.1:
+#		Fixed some errors in documentation
+#		Fixed some typos.
+#
 
 # Version
-BEEP_VERS=1.0
+BEEP_VERS=1.0.1
 
 ### Set up.
 # Set trap to allow abort on signal: 
@@ -45,19 +49,18 @@ if test $# -ne 0 ; then
 				case "$FLAG" in
 					-h) 
 						### Usage information
-						echo "       ./beep [NUM_BEEPS]"
+						echo "Usage: ./beep [NUM_BEEPS]"
 						echo "Usage: ./beep -h"
-						echo "       ./beep -v"
+						echo "Usage: ./beep -v"
 						echo ""
 						echo "Options:"
 						echo "    -h        Print this usage summary."
 						echo "    -v        Print tool version."
 						echo ""
-						echo "Usage:"
-						echo "              Causes the shell to emit the current hardware alert sound."
-						echo "              When a flag option is used no beeps are emitted."
-						echo "              When no NUM_BEEPS is supplied one beep is emitted, otherwise"
-						echo "              NUM_BEEPS beeps are emitted."
+						echo "Causes the shell to emit the current hardware alert sound."
+						echo "When a flag option is used no beeps are emitted."
+						echo "When no NUM_BEEPS is supplied one beep is emitted, otherwise"
+						echo "NUM_BEEPS beeps are emitted."
 						echo ""
 						NOBUILD=true
 						break
